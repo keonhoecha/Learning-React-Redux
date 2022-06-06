@@ -2,33 +2,30 @@ import logo from './logo.svg';
 import './App.css';
 import ButtonGroup from './ButtonGroup';
 import React from 'react';
+import {store} from './store'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {tech: "React"};
     this.onClickHandler = this.onClickHandler.bind(this);
   }
 
   onClickHandler(e) {
     console.log(e.target.value);
-    this.setState({tech: e.target.value});
+    store.dispatch({type: "UPDATE_TECH", tech: e.target.value})
   }
+
   render() { 
     return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        Welcome to {this.state.tech}
+        Welcome to {store.getState().tech}
         <ButtonGroup handler={this.onClickHandler} />
       </header>
       
     </div>
   )};
-
-  handleButtonChange(e) {
-
-  }
 }
 
 export default App;
