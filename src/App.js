@@ -20,6 +20,7 @@ class App extends React.Component {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <a href="test" className="greeting">Test</a>
         Welcome to {store.getState().tech}
         <ButtonGroup handler={this.onClickHandler} />
       </header>
